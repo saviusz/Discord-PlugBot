@@ -1,0 +1,23 @@
+{
+  "name": "testerbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+
+  },
+  "author": "Savi",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "terminal": "file:./server/Built-in/Modules/terminal",
+    "database": "file:./server/Built-in/Modules/database",
+    "plugin": "file:./server/Built-in/Modules/plugin",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
