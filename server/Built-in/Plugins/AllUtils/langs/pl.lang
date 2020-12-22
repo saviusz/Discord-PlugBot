@@ -1,0 +1,4 @@
+pluginDescription: Podstawowe funkcjonalności
+recivedMessage: |-
+  Otrzymano wiadomość od %user% na kanale %guild%:%channel%:
+  "%content%"

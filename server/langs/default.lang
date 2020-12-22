@@ -1,0 +1,6 @@
+loggedIntoServers: "Logged into servers: "
+messageRecived: Recived message
+pluginLoaded: Loaded plugin %name%@%version%
+pluginLoadingError: "%name%@%version% plugin loading lasts too long. Plugin can be demaged"
+pluginLoading: Loading plugin %name%@%version%
+noSuchCommand: The command '%command%' does not exist!!!

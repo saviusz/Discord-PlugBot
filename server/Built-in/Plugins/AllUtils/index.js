@@ -14,7 +14,7 @@ const db = new Database(
     },
     {
        pluginDescription: 'Podstawowe funkcjonalności',
-       recivedMessage: 'Otrzymano wiadomość od %s na kanale %s:%s:\n\"%s\"'
+       recivedMessage: 'Recived message form user %user% on channel %guild%:%channel%:\n\"%content%\"'
     }
 )
 
@@ -51,7 +51,11 @@ module.exports = new Plugin(
     },
     (client, ...args)=>{
         client.on('message', msg=>{
-            terminal.debug(db.lang('pl')['recivedMessage'], msg.author.tag, msg.channel.guild.name, msg.channel.name, msg.content)
+            terminal.debug(db.lang('pl')('recivedMessage', {
+                    author: msg.author.tag,
+                    guild: msg.channel.guild.name,
+                    channel: msg.channel.name,
+                    content: msg.content}))
         })
     }
     )

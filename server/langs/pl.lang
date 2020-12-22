@@ -1,6 +1,0 @@
-loggedIntoServers: "Zalogowano do serwerów: "
-messageRecived: Otrzymano wiadomość
-pluginLoaded: Załadowano plugin %s
-pluginLoadingError: Ładowanie pluginu %s trwa zbyt długo. Plugin może być uszkodzony
-pluginLoading: Ładowanie pluginu %s
-noSuchCommand: Komenda %s nie istnieje!!!

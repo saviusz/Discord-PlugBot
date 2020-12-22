@@ -17,12 +17,12 @@ const db = new Database(__dirname, 'Bot', {
 }, {
     lang: 'en'
 }, {
-    loggedIntoServers: 'Zalogowano do serwerów: ',
-    messageRecived: 'Otrzymano wiadomość',
-    pluginLoaded: 'Załadowano plugin %s',
-    pluginLoadingError: 'Ładowanie pluginu %s trwa zbyt długo. Plugin może być uszkodzony',
-    pluginLoading: "Ładowanie pluginu %s",
-    noSuchCommand: "Komenda %s nie istnieje",
+    loggedIntoServers: 'Logged into servers: ',
+    messageRecived: 'Recived message',
+    pluginLoaded: 'Loaded plugin %name%@%version%',
+    pluginLoadingError: '%name%@%version% plugin loading lasts too long. Plugin can be demaged',
+    pluginLoading: 'Loading plugin %name%@%version%',
+    noSuchCommand: "The command '%command%' does not exist!!!",
 });
 
 //Initialization
@@ -35,7 +35,7 @@ destructPluginsFromDir(`${__dirname}/Built-in/Plugins`);
 
 //Events
 client.on('ready', () => {
-    terminal.success(lang['loggedIntoServers']);
+    terminal.success(lang('loggedIntoServers'));
     terminal.info(client.guilds.cache.map(x => `${x.name} (${x.id})`).join('\n'));
 });
 
@@ -53,7 +53,7 @@ terminal.on('line', input => {
     if (db.commands.console.has(args[0])) {
         db.commands.console.get(args[0]).run(args);
     } else {
-        terminal.warn(lang['noSuchCommand'], args[0])
+        terminal.warn(lang('noSuchCommand', {command: args[0]}))
     }
 })
 
@@ -76,7 +76,7 @@ function destructPluginsFromDir(path) {
         if (file) db.plugins.set(adress, require(adress));
         if (db.plugins.has(adress)) {
             const plugin = db.plugins.get(adress);
-            terminal.debug(lang['pluginLoading'], `${plugin.name}@${plugin.version}`)
+            terminal.debug(lang('pluginLoading', {name:plugin.name, version:plugin.version}));
             plugin.chatCommands.forEach(element => {
                 element.plugin = plugin;
                 element.names.forEach(elem => {
@@ -93,7 +93,7 @@ function destructPluginsFromDir(path) {
 
             let stopped = false;
             setTimeout(() => {
-                if (!stopped) terminal.warn(lang['pluginLoadingError'], plugin.name + '@' + plugin.version);
+                if (!stopped) terminal.warn(lang('pluginLoadingError', {name:plugin.name, version:plugin.version}));
             }, 5000);
             (async () => {
                 plugin.run(client, {
@@ -102,7 +102,7 @@ function destructPluginsFromDir(path) {
                 })
             })().then(() => {
                 stopped = true;
-                terminal.info(lang['pluginLoaded'], plugin.name + '@' + plugin.version)
+                terminal.info(lang('pluginLoaded', {name:plugin.name, version:plugin.version}))
             });
         }
     }
