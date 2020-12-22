@@ -6,18 +6,17 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon ."
-
   },
   "author": "Savi",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.3.1",
+    "discord.js": "latest",
     "terminal": "file:./server/Built-in/Modules/terminal",
     "database": "file:./server/Built-in/Modules/database",
     "plugin": "file:./server/Built-in/Modules/plugin",
-    "yaml": "^1.10.0"
+    "yaml": "latest"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "latest"
   }
 }
