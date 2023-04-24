@@ -15,7 +15,7 @@
     "terminal": "file:./server/Built-in/Modules/terminal",
     "database": "file:./server/Built-in/Modules/database",
     "plugin": "file:./server/Built-in/Modules/plugin",
-    "yaml": "^1.10.0"
+    "yaml": "^2.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
